@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:title="@string/refresh"
+            android:id="@+id/action_refresh"
+            android:icon="@drawable/ic_refresh_dark"
+            app:showAsAction="always"/>
+    <item
+        android:id="@+id/failure_network"
+        android:title="@string/failure_network_connection"/>
+    <item
+            android:id="@+id/failure_server"
+            android:title="@string/failure_server_error"/>
+    <item
+            android:id="@+id/failure_permissions"
+            android:title="@string/failure_permission_error"/>
+    <item
+            android:id="@+id/failure_main_thread"
+            android:title="@string/failure_network_on_main_thread"/>
+    <item
+            android:id="@+id/failure_not_implemented"
+            android:title="@string/failure_not_implemented"/>
+    <item
+            android:id="@+id/failure_empty_result"
+            android:title="@string/failure_empty_result"/>
+</menu>

@@ -1,0 +1,53 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+
+buildscript {
+    apply from: 'dependencies.gradle'
+    addRepos(repositories)
+    dependencies {
+        classpath deps.android.gradle_plugin
+        classpath deps.kotlin.kotlin_gradle_plugin
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    addRepos(repositories)
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+static def getDateTime() {
+    DateFormat df = new SimpleDateFormat("YYYYMMDDHHmm")
+    return df.format(new Date())
+}
+
+task _projectZip(type:Zip) {
+    description = 'Makes a single zip file suitable for import.'
+    from projectDir
+    //noinspection GrDeprecatedAPIUsage
+    baseName = "project-files-" + getDateTime()
+    //noinspection GrDeprecatedAPIUsage
+    destinationDir file('zip')
+    include 'build.gradle'
+    include 'gradle.properties'
+    include 'gradlew'
+    include 'gradlew.bat'
+    include 'settings.gradle'
+    include 'gradle/**'
+    exclude 'build'
+    exclude '.gradle'
+    exclude '*.iml'
+    exclude 'local.properties'
+    include 'app/**'
+    exclude 'app/*.iml'
+    exclude 'app/build'
+    include '.idea/**'
+    exclude '.idea/workspace.xml'
+    exclude '.idea/libraries'
+    include 'documents/**'
+}

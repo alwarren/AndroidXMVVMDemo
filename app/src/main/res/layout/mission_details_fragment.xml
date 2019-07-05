@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".feature.mission.MissionsActivity"
+            android:id="@+id/twitterIcon">
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/constraint_margin"
+    >
+        <TextView
+                android:id="@+id/missionName"
+                tools:text="@sample/missions.json/data/mission_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+        <TextView
+                android:id="@+id/description"
+                tools:text="@sample/missions.json/data/description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/missionName"
+                app:layout_constraintStart_toStartOf="@+id/missionName"
+                app:layout_constraintEnd_toEndOf="parent"
+        />
+        <ImageView
+                android:id="@+id/twitter"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:srcCompat="@drawable/twitter_circle_color"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/description"
+                android:contentDescription="@string/twitter" app:layout_constraintStart_toEndOf="@+id/wikipedia"
+                app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"/>
+        <ImageView
+                android:id="@+id/wikipedia"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:srcCompat="@drawable/wikipedia_circle_color"
+                app:layout_constraintTop_toBottomOf="@+id/description"
+                android:contentDescription="@string/wikipedia"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toEndOf="@+id/website" app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintEnd_toStartOf="@+id/twitter"/>
+        <ImageView
+                android:id="@+id/website"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:srcCompat="@drawable/world_wide_web"
+                app:layout_constraintTop_toBottomOf="@+id/description"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/website"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintEnd_toStartOf="@+id/wikipedia"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

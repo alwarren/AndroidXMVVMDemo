@@ -1,0 +1,78 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.ntxdroid.spacex"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            testCoverageEnabled = true
+            minifyEnabled false
+        }
+    }
+    testOptions {
+        unitTests.includeAndroidResources = true
+        unitTests.returnDefaultValues = true
+    }
+
+    useLibrary 'android.test.runner'
+
+    useLibrary 'android.test.base'
+    useLibrary 'android.test.mock'
+
+    androidExtensions {
+        experimental = true
+    }
+}
+
+dependencies {
+    // initial build
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation deps.android.appcompat
+    implementation deps.android.constraint_layout
+    implementation deps.kotlin.core
+    implementation deps.kotlin.stdlib
+    androidTestImplementation deps.test.espresso
+    androidTestImplementation deps.test.runner
+    // android
+    implementation deps.android.cardview
+    implementation deps.android.lifecycle_extensions
+    implementation deps.android.material
+    kapt deps.android.lifecycle_compiler
+    // kotlin
+    implementation deps.kotlin.coroutines
+    implementation deps.kotlin.coroutines_android
+    // third party
+    implementation deps.algs.algs4
+    implementation deps.gson.base
+    implementation deps.kodein.android
+    implementation deps.kodein.base
+    implementation deps.retrofit.base
+    implementation deps.retrofit.gson
+    implementation deps.threeten.base
+    implementation deps.timber.base
+    implementation deps.guava.base
+    // testing
+    testImplementation deps.test.android_arch_lifecycle
+    testImplementation deps.test.androidx_test
+    testImplementation deps.test.coroutines_test
+    testImplementation deps.test.junit5
+    testImplementation deps.test.junit5_params
+    testImplementation deps.test.kluent
+    testImplementation deps.test.mockk
+    androidTestImplementation deps.test.mockk_android
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorSecondary">#37474f</color>
+    <color name="colorSecondaryDark">#102027</color>
+    <color name="colorAccentDark">#546e7a</color>
+
+    <color name="colorPrimaryLight">@color/almostWhite</color>
+    <color name="colorTextPrimary">@color/almostWhite</color>
+    <color name="colorTextPrimaryInverse">@color/almostBlack</color>
+    <color name="colorSnackAction">#ffcc66</color>
+    <color name="colorSnackText">@color/colorTextPrimary</color>
+    <color name="colorProgressBackground">#C6C6C6</color>
+
+    <color name="almostWhite">#fdfdfd</color>
+    <color name="almostBlack">#0a0a0a</color>
+
+    <color name="design_snackbar_background_color" tools:override="true">@color/colorPrimary</color>
+
+    <color name="circle1">#ff1744</color>
+    <color name="circle2">#E91E63</color>
+    <color name="circle3">#ff1744</color>
+</resources>

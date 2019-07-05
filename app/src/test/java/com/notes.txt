@@ -1,0 +1,5 @@
+    @ExperimentalCoroutinesApi
+    @BeforeAll
+    fun setup() {
+        Dispatchers.setMain(Dispatchers.Unconfined)
+    }
