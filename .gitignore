@@ -85,3 +85,6 @@ markdown-navigator.xml
 
 # Ignore the entire .idea folder on GitHub
 .idea/
+
+!all-tests.log
+StandaloneLaunchesTest.kt

@@ -1,0 +1,117 @@
+
+Http Failures Test Suite 2019-07-06 1:21 AM
+  API
+    expected methods => PASSED
+  Behavior
+    ServerFailure is a Failure => PASSED
+    Given status code handle ServerFailure => PASSED
+    Given status object handle ServerFailure => PASSED
+  Corner Cases
+    No Tests
+End of Test Suite
+Passed 4 of 4 tests
+
+Either Test Suite 2019-07-06 1:21 AM
+  API
+    expected methods => PASSED
+  Behavior
+    Either Right is correct => PASSED
+    Either Left is correct => PASSED
+  Corner Cases
+    No Tests
+End of Test Suite
+Passed 3 of 3 tests
+
+Abstract Use Case Test Suite 2019-07-06 1:21 AM
+  API
+    expected methods => PASSED
+  Behavior
+    run() Right is correct => PASSED
+    should return correct data when executing use case => PASSED
+  Corner Cases
+    No Tests
+End of Test Suite
+Passed 3 of 3 tests
+
+Http Status Codes Test Suite 2019-07-06 1:21 AM
+  API
+    Verify Expected Names => PASSED
+    Verify Expected Values => PASSED
+  Behavior
+    Invalid fromInt() parameter is Type Unknown => PASSED
+  Corner Cases
+    No Tests
+End of Test Suite
+Passed 3 of 3 tests
+
+Launches Use Case Test Suite 2019-07-06 1:21 AM
+  API
+    expected methods => PASSED
+  Behavior
+    run() is called => PASSED
+  Corner Cases
+    No Tests
+End of Test Suite
+Passed 2 of 2 tests
+
+Launches ViewModel Test Suite 2019-07-06 1:21 AM
+  API
+    expected methods => PASSED
+  Behavior
+    ViewModel state => PASSED
+    Repository Success => PASSED
+  Corner Cases
+    Repository Failure => PASSED
+End of Test Suite
+Passed 4 of 4 tests
+
+Mission Repository Test Suite 2019-07-06 1:21 AM
+  API
+    expected methods => PASSED
+  Behavior
+    return launches list => PASSED
+    return empty list => PASSED
+  Corner Cases
+    network failure => PASSED
+    response server error => PASSED
+    response exception => PASSED
+End of Test Suite
+Passed 6 of 6 tests
+
+Missions Use Case Test Suite 2019-07-06 1:21 AM
+  API
+    expected methods => PASSED
+  Behavior
+    run() is called => PASSED
+  Corner Cases
+    No Tests
+End of Test Suite
+Passed 2 of 2 tests
+
+Mission Repository Test Suite 2019-07-06 1:21 AM
+  API
+    expected methods => PASSED
+  Behavior
+    return missions list => PASSED
+    return empty list => PASSED
+  Corner Cases
+    network failure => PASSED
+    response server error => PASSED
+    response exception => PASSED
+  Behavior
+    NetworkHandler isConnected is called => PASSED
+    MissionService getAll() is called => PASSED
+    Call execute() is called => PASSED
+End of Test Suite
+Passed 9 of 9 tests
+
+Missions ViewModel Test Suite 2019-07-06 1:21 AM
+  API
+    expected methods => PASSED
+  Behavior
+    ViewModel state => PASSED
+    Repository Success => PASSED
+  Corner Cases
+    Repository Failure => PASSED
+End of Test Suite
+Passed 4 of 4 tests
