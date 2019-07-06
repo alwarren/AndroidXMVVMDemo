@@ -1,4 +1,4 @@
-package com.ntxdroid.spacex.feature.mission
+package com.ntxdroid.spacex.feature.launch
 
 import com.ntxdroid.spacex.UnitTest
 import com.ntxdroid.spacex.constants.Values
@@ -12,20 +12,20 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.setMain
-import org.amshove.kluent.*
+import org.amshove.kluent.shouldEqual
 import org.junit.jupiter.api.*
 
-class GetMissionTests : UnitTest() {
+class GetLaunchesTests : UnitTest() {
     private val networkHandler = mockk<NetworkHandler>(relaxed = true)
-    private val missionService = mockk<MissionService>()
-    lateinit var repository: MissionRepository
-    private lateinit var getMissions: GetMissions
+    private val missionService = mockk<LaunchService>()
+    lateinit var repository: LaunchRepository
+    private lateinit var getLaunchs: GetLaunches
 
     @BeforeAll
     override fun beforeAll() {
-        StdOut.println(Values.suiteTitle(Values.SUITE_TITLE_MISSIONS_USE_CASE))
-        repository = MissionRepository.Network(networkHandler, missionService)
-        getMissions = GetMissions(repository)
+        StdOut.println(Values.suiteTitle(Values.SUITE_TITLE_LAUNCHES_USE_CASE))
+        repository = LaunchRepository.Network(networkHandler, missionService)
+        getLaunchs = GetLaunches(repository)
     }
 
     @Nested
@@ -65,10 +65,10 @@ class GetMissionTests : UnitTest() {
         fun `run is called`() {
             StdOut.print(Values.testTitle("run() is called"))
             runBlocking {
-                getMissions.run(UseCase.None())
+                getLaunchs.run(UseCase.None())
             }
             coVerify {
-                repository.missions()
+                repository.launches()
             }
             showPassed()
         }
@@ -91,7 +91,7 @@ class GetMissionTests : UnitTest() {
     }
 
     override fun actualMethods() =
-        MethodSpy.publicMethodNames(GetMissions::class.java).sorted()
+        MethodSpy.publicMethodNames(GetLaunches::class.java).sorted()
 
     override fun expectedMethods() =
         listOf("run").sorted()

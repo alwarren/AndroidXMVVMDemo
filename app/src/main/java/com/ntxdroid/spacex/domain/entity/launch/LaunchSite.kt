@@ -9,4 +9,8 @@ data class LaunchSite(
     val siteName: String,
     @SerializedName("site_name_long")
     val siteNameLong: String
-)
+) {
+    companion object {
+        val empty = LaunchSite("", "", "")
+    }
+}

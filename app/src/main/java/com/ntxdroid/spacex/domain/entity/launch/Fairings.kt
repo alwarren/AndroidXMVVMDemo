@@ -8,4 +8,8 @@ data class Fairings(
     val recoveryAttempt: Boolean?,
     val recovered: Boolean?,
     val ship: String?
-)
+) {
+    companion object {
+        val empty = Fairings(false, null, null, null)
+    }
+}

@@ -14,4 +14,9 @@ data class Rocket(
     @SerializedName("second_stage")
     val secondStage: SecondStage,
     val fairings: Fairings?
-)
+) {
+    companion object {
+        val empty = Rocket("", "", "", FirstStage.empty,
+            SecondStage.empty, null)
+    }
+}

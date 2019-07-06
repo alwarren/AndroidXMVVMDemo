@@ -25,4 +25,9 @@ data class Links(
     val youtubeId: String?,
     @SerializedName("flickr_images")
     val flickrImages: List<String>
-)
+) {
+    companion object {
+        val empty = Links(null, null, "", "", "",
+            "", "", "", "", "", null, emptyList())
+    }
+}

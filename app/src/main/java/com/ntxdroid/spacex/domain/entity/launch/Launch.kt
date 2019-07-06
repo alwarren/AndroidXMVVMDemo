@@ -50,4 +50,12 @@ data class Launch(
     @SerializedName("static_fire_date_unix")
     val staticFireDateUnix: Int?,
     val timeline: Map<String, Int>?
-)
+) {
+    companion object {
+        val empty = Launch(0, "", emptyList(), false,
+            "", 0, "", "", false, "",
+            false, null, Rocket.empty, emptyList(), Telemetry.empty, LaunchSite.empty,
+            false, null, Links.empty, null, null,
+            null, null)
+    }
+}

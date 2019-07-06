@@ -1,43 +1,40 @@
-package com.ntxdroid.spacex.feature.mission
+package com.ntxdroid.spacex.feature.launch
 
 import com.ntxdroid.spacex.UnitTest
 import com.ntxdroid.spacex.constants.Values
 import com.ntxdroid.spacex.core.exception.Failure
-import com.ntxdroid.spacex.core.exception.Failure.NetworkConnection
-import com.ntxdroid.spacex.core.exception.Failure.ServerError
 import com.ntxdroid.spacex.core.functional.Either
 import com.ntxdroid.spacex.core.platform.HttpFailure
 import com.ntxdroid.spacex.core.platform.NetworkHandler
-import com.ntxdroid.spacex.domain.entity.mission.Mission
-import com.ntxdroid.spacex.mock.MockMissions
+import com.ntxdroid.spacex.domain.entity.launch.Launch
 import com.ntxdroid.spacex.util.MethodSpy
 import edu.princeton.cs.algs4.StdOut
 import io.mockk.every
 import io.mockk.mockk
-import io.mockk.verify
 import org.amshove.kluent.shouldBeInstanceOf
 import org.amshove.kluent.shouldEqual
 import org.junit.jupiter.api.*
 import retrofit2.Call
 import retrofit2.Response
 
-class MissionsRepositoryTests : UnitTest() {
+class LaunchRepositoryTest : UnitTest() {
+    private val launches = listOf(Launch.empty, Launch.empty)
     private val networkHandler = mockk<NetworkHandler>()
-    private val call = mockk<Call<List<Mission>>>(relaxed = true)
-    private val response = mockk<Response<List<Mission>>>()
-    private val missionService = mockk<MissionService>()
+    private val call = mockk<Call<List<Launch>>>(relaxed = true)
+    private val response = mockk<Response<List<Launch>>>()
+    private val launchService = mockk<LaunchService>()
 
     @BeforeAll
     override fun beforeAll() {
-        StdOut.println(Values.suiteTitle(Values.SUITE_TITLE_MISSIONS_REPOSITORY))
+        StdOut.println(Values.suiteTitle(Values.SUITE_TITLE_LAUNCH_REPOSITORY))
     }
 
     @BeforeEach
     fun setup() {
         every { networkHandler.isConnected } returns false
         every { response.isSuccessful } returns false
-        every { response.body() } returns MockMissions.list
-        every { missionService.getAll() } returns call
+        every { response.body() } returns launches
+        every { launchService.getAll() } returns call
         every { call.execute() } returns response
     }
 
@@ -52,31 +49,31 @@ class MissionsRepositoryTests : UnitTest() {
         }
 
         @Order(1)
-        @Test fun `expected methods`() {
+        @Test
+        fun `expected methods`() {
             StdOut.print(Values.testTitle("expected methods"))
             actualMethods() shouldEqual expectedMethods()
             showPassed()
         }
-
     }
 
     @Nested
     @DisplayName("Behavior")
     @TestMethodOrder(MethodOrderer.OrderAnnotation::class)
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-    inner class Functional {
+    inner class Behavior {
         @BeforeAll
         fun setup() {
             StdOut.println(Values.classTitle("Behavior"))
         }
 
         @Order(1)
-        @Test fun `return missions list`() {
-            StdOut.print(Values.testTitle("return missions list"))
+        @Test fun `return launches list`() {
+            StdOut.print(Values.testTitle("return launches list"))
             every { networkHandler.isConnected } returns true
             every { response.isSuccessful } returns true
-            getMissions(networkHandler, missionService)
-                .either({}, {it shouldEqual MockMissions.list})
+            getLaunches(networkHandler, launchService)
+                .either({}, {it shouldEqual launches})
             showPassed()
         }
 
@@ -86,8 +83,7 @@ class MissionsRepositoryTests : UnitTest() {
             every { networkHandler.isConnected } returns true
             every { response.isSuccessful } returns true
             every { response.body() } returns emptyList()
-            getMissions(networkHandler, missionService)
-            getMissions(networkHandler, missionService)
+            getLaunches(networkHandler, launchService)
                 .either({}, {it shouldEqual emptyList()})
             showPassed()
         }
@@ -107,9 +103,8 @@ class MissionsRepositoryTests : UnitTest() {
         @Test fun `network failure`() {
             StdOut.print(Values.testTitle("network failure"))
             every { networkHandler.isConnected } returns false
-            getMissions(networkHandler, missionService)
-            getMissions(networkHandler, missionService)
-                .either({it shouldBeInstanceOf NetworkConnection::class}, {})
+            getLaunches(networkHandler, launchService)
+                .either({it shouldBeInstanceOf Failure.NetworkConnection::class}, {})
             showPassed()
         }
 
@@ -119,7 +114,7 @@ class MissionsRepositoryTests : UnitTest() {
             every { networkHandler.isConnected } returns true
             every { response.isSuccessful } returns false
             every { response.code() } returns Values.HTTP_CODE_UNKNOWN
-            getMissions(networkHandler, missionService)
+            getLaunches(networkHandler, launchService)
                 .either({it shouldBeInstanceOf HttpFailure::class}, {})
             showPassed()
         }
@@ -129,62 +124,21 @@ class MissionsRepositoryTests : UnitTest() {
             StdOut.print(Values.testTitle("response exception"))
             every { networkHandler.isConnected } returns true
             every { call.execute() } throws Exception()
-            getMissions(networkHandler, missionService)
-                .either({it shouldBeInstanceOf ServerError::class}, {})
+            getLaunches(networkHandler, launchService)
+                .either({it shouldBeInstanceOf Failure.ServerError::class}, {})
             showPassed()
         }
     }
 
-    @Nested
-    @DisplayName("Behavior")
-    @TestMethodOrder(MethodOrderer.OrderAnnotation::class)
-    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-    inner class Behavior {
-        @BeforeAll
-        fun setup() {
-            every { networkHandler.isConnected } returns true
-            every { response.isSuccessful } returns true
-            every { response.body() } returns emptyList()
-            every { missionService.getAll() } returns call
-            every { call.execute() } returns response
-            getMissions(networkHandler, missionService)
-            StdOut.println(Values.classTitle("Behavior"))
-        }
-
-        @Order(1)
-        @Test
-        fun `networkHandler isConnected is called`() {
-            StdOut.print(Values.testTitle("NetworkHandler isConnected is called"))
-            verify { networkHandler.isConnected }
-            showPassed()
-        }
-
-        @Order(2)
-        @Test
-        fun `MissionService getAll() is called`() {
-            StdOut.print(Values.testTitle("MissionService getAll() is called"))
-            verify { missionService.getAll() }
-            showPassed()
-        }
-
-        @Order(3)
-        @Test
-        fun `call execute() is called`() {
-            StdOut.print(Values.testTitle("Call execute() is called"))
-            verify { call.execute() }
-            showPassed()
-        }
-    }
-
-    private fun getMissions(networkHandler: NetworkHandler, missionsService: MissionService)
-            : Either<Failure, List<Mission>> {
-        val repository = MissionRepository.Network(networkHandler, missionsService)
-        return repository.missions()
+    private fun getLaunches(networkHandler: NetworkHandler, launchService: LaunchService)
+            : Either<Failure, List<Launch>> {
+        val repository = LaunchRepository.Network(networkHandler, launchService)
+        return repository.launches()
     }
 
     override fun actualMethods() =
-        MethodSpy.publicMethodNames(MissionRepository::class.java).sorted()
+        MethodSpy.publicMethodNames(LaunchRepository::class.java).sorted()
 
     override fun expectedMethods() =
-        listOf("missions", "missionDetails").sorted()
+        listOf("launches", "launchDetails").sorted()
 }

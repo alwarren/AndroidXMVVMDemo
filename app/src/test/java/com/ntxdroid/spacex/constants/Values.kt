@@ -1,7 +1,7 @@
 package com.ntxdroid.spacex.constants
 
 import java.text.SimpleDateFormat
-import java.util.Date
+import java.util.*
 
 class Values {
     companion object {
@@ -13,9 +13,12 @@ class Values {
 
         const val HTTP_CODE_UNKNOWN = 999
 
+        const val SUITE_TITLE_LAUNCH_REPOSITORY = "Mission Repository"
         const val SUITE_TITLE_MISSIONS_REPOSITORY = "Mission Repository"
         const val SUITE_TITLE_MISSIONS_VIEW_MODEL = "Missions ViewModel"
+        const val SUITE_TITLE_LAUNCHES_VIEW_MODEL = "Launches ViewModel"
         const val SUITE_TITLE_EITHER = "Either"
+        const val SUITE_TITLE_LAUNCHES_USE_CASE = "Launches Use Case"
         const val SUITE_TITLE_MISSIONS_USE_CASE = "Missions Use Case"
         const val SUITE_TITLE_USE_CASE = "Abstract Use Case"
         const val SUITE_TITLE_HTTP_FAILURE = "Http Failures"
