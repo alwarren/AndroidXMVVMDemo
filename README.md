@@ -4,9 +4,9 @@ An AndroidX MVVM demo project written in Kotlin. Inspired by Fernando Cejas' Cle
 
 Quick Links:
 
-* MissionsViewModel - TODO
-* MissionsFragment - TODO
-* MissionsAdapter - TODO
+* MissionsViewModel - https://git.io/fj6b6
+* MissionsFragment - https://git.io/fj6b1
+* MissionsAdapter - https://git.io/fj6bD
 
 References:
 
