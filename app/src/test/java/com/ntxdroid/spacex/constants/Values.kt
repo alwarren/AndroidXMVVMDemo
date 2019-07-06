@@ -13,7 +13,7 @@ class Values {
 
         const val HTTP_CODE_UNKNOWN = 999
 
-        const val SUITE_TITLE_LAUNCH_REPOSITORY = "Mission Repository"
+        const val SUITE_TITLE_LAUNCH_REPOSITORY = "Launch Repository"
         const val SUITE_TITLE_MISSIONS_REPOSITORY = "Mission Repository"
         const val SUITE_TITLE_MISSIONS_VIEW_MODEL = "Missions ViewModel"
         const val SUITE_TITLE_LAUNCHES_VIEW_MODEL = "Launches ViewModel"
