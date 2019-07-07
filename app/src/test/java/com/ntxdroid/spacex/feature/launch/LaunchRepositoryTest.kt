@@ -72,7 +72,7 @@ class LaunchRepositoryTest : UnitTest() {
             StdOut.print(Values.testTitle("return launches list"))
             every { networkHandler.isConnected } returns true
             every { response.isSuccessful } returns true
-            getLaunches(networkHandler, launchService)
+            getLaunches()
                 .either({}, {it shouldEqual launches})
             showPassed()
         }
@@ -83,7 +83,7 @@ class LaunchRepositoryTest : UnitTest() {
             every { networkHandler.isConnected } returns true
             every { response.isSuccessful } returns true
             every { response.body() } returns emptyList()
-            getLaunches(networkHandler, launchService)
+            getLaunches()
                 .either({}, {it shouldEqual emptyList()})
             showPassed()
         }
@@ -103,7 +103,7 @@ class LaunchRepositoryTest : UnitTest() {
         @Test fun `network failure`() {
             StdOut.print(Values.testTitle("network failure"))
             every { networkHandler.isConnected } returns false
-            getLaunches(networkHandler, launchService)
+            getLaunches()
                 .either({it shouldBeInstanceOf Failure.NetworkConnection::class}, {})
             showPassed()
         }
@@ -114,7 +114,7 @@ class LaunchRepositoryTest : UnitTest() {
             every { networkHandler.isConnected } returns true
             every { response.isSuccessful } returns false
             every { response.code() } returns Values.HTTP_CODE_UNKNOWN
-            getLaunches(networkHandler, launchService)
+            getLaunches()
                 .either({it shouldBeInstanceOf HttpFailure::class}, {})
             showPassed()
         }
@@ -124,13 +124,13 @@ class LaunchRepositoryTest : UnitTest() {
             StdOut.print(Values.testTitle("response exception"))
             every { networkHandler.isConnected } returns true
             every { call.execute() } throws Exception()
-            getLaunches(networkHandler, launchService)
+            getLaunches()
                 .either({it shouldBeInstanceOf Failure.ServerError::class}, {})
             showPassed()
         }
     }
 
-    private fun getLaunches(networkHandler: NetworkHandler, launchService: LaunchService)
+    private fun getLaunches()
             : Either<Failure, List<Launch>> {
         val repository = LaunchRepository.Network(networkHandler, launchService)
         return repository.launches()

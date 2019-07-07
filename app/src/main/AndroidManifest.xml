@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".feature.mission.MissionDetailsActivity"/>
+        <activity android:name=".feature.launch.LaunchesActivity"/>
     </application>
 
 </manifest>

@@ -10,7 +10,13 @@ import retrofit2.http.Path
  * https://api.spacexdata.com/v3/launches/{{flight_number}}
  */
 interface LaunchService {
+    @GET("launches/past")
+    fun getPast(): Call<List<Launch>>
+
     @GET("launches/upcoming")
+    fun getUpcoming(): Call<List<Launch>>
+
+    @GET("launches")
     fun getAll(): Call<List<Launch>>
 
     @GET("launches/{flightNumber}")

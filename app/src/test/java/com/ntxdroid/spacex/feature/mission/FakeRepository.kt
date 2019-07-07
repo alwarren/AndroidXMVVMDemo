@@ -1,6 +1,5 @@
 package com.ntxdroid.spacex.feature.mission
 
-import com.google.common.collect.Lists
 import com.ntxdroid.spacex.core.exception.Failure
 import com.ntxdroid.spacex.core.functional.Either
 import com.ntxdroid.spacex.core.functional.Either.Left
@@ -15,7 +14,7 @@ class FakeRepository : MissionRepository {
 
     override fun missions(): Either<Failure, List<Mission>> {
         return if (shouldReturnErrors) Left(Failure.ServerError)
-        else Right(Lists.newArrayList(tasksServiceData.values))
+        else Right(tasksServiceData.values.toList())
     }
 
     override fun missionDetails(id: String): Either<Failure, Mission> {

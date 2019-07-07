@@ -46,6 +46,7 @@ dependencies {
     implementation deps.android.constraint_layout
     implementation deps.kotlin.core
     implementation deps.kotlin.stdlib
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     androidTestImplementation deps.test.espresso
     androidTestImplementation deps.test.runner
     // android
@@ -65,7 +66,6 @@ dependencies {
     implementation deps.retrofit.gson
     implementation deps.threeten.base
     implementation deps.timber.base
-    implementation deps.guava.base
     // testing
     testImplementation deps.test.android_arch_lifecycle
     testImplementation deps.test.androidx_test
@@ -74,5 +74,6 @@ dependencies {
     testImplementation deps.test.junit5_params
     testImplementation deps.test.kluent
     testImplementation deps.test.mockk
+    testImplementation deps.guava.base
     androidTestImplementation deps.test.mockk_android
 }

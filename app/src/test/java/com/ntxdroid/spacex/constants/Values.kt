@@ -18,6 +18,8 @@ class Values {
         const val SUITE_TITLE_MISSIONS_VIEW_MODEL = "Missions ViewModel"
         const val SUITE_TITLE_LAUNCHES_VIEW_MODEL = "Launches ViewModel"
         const val SUITE_TITLE_EITHER = "Either"
+        const val SUITE_TITLE_LAUNCH_VIEW = "Launch View"
+        const val SUITE_TITLE_MISSION_VIEW = "Mission View"
         const val SUITE_TITLE_LAUNCHES_USE_CASE = "Launches Use Case"
         const val SUITE_TITLE_MISSIONS_USE_CASE = "Missions Use Case"
         const val SUITE_TITLE_USE_CASE = "Abstract Use Case"

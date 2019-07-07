@@ -8,26 +8,25 @@ data class Links(
     @SerializedName("mission_patch_small")
     val missionPatchSmall: String?,
     @SerializedName("reddit_campaign")
-    val redditCampaign: String,
+    val redditCampaign: String?,
     @SerializedName("reddit_launch")
-    val redditLaunch: String,
+    val redditLaunch: String?,
     @SerializedName("reddit_recovery")
-    val redditRecovery: String,
+    val redditRecovery: String?,
     @SerializedName("reddit_media")
-    val redditMedia: String,
-    val presskit: String,
+    val redditMedia: String?,
+    val presskit: String?,
     @SerializedName("article_link")
-    val articleLink: String,
-    val wikipedia: String,
+    val articleLink: String?,
+    val wikipedia: String?,
     @SerializedName("video_link")
-    val videoLink: String,
+    val videoLink: String?,
     @SerializedName("youtube_id")
     val youtubeId: String?,
     @SerializedName("flickr_images")
     val flickrImages: List<String>
 ) {
     companion object {
-        val empty = Links(null, null, "", "", "",
-            "", "", "", "", "", null, emptyList())
-    }
+        val empty = Links(null, null, null, null, null,
+            null, null, null, null, null, null, emptyList())    }
 }

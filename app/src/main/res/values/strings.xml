@@ -32,4 +32,7 @@
     <string name="app_pref_key_use_day_night">com.ntxdroid.spacex.use_day_night</string>
     <string name="app_pref_key_day_night_on">com.ntxdroid.spacex.day_night_on</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
