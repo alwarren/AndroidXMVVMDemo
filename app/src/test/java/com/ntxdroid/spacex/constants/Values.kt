@@ -25,6 +25,7 @@ class Values {
         const val SUITE_TITLE_USE_CASE = "Abstract Use Case"
         const val SUITE_TITLE_HTTP_FAILURE = "Http Failures"
         const val SUITE_TITLE_HTTP_STATUS_CODES = "Http Status Codes"
+        const val SUITE_TITLE_CONVERTERS = "Converters"
 
         private fun dateTime(): String {
             val pattern = "yyyy-MM-dd h:mm a"

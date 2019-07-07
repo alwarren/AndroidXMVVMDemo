@@ -54,6 +54,10 @@ dependencies {
     implementation deps.android.lifecycle_extensions
     implementation deps.android.material
     kapt deps.android.lifecycle_compiler
+    implementation deps.android.room
+    implementation deps.android.room_kotlin
+    kapt deps.android.room_compiler
+
     // kotlin
     implementation deps.kotlin.coroutines
     implementation deps.kotlin.coroutines_android
