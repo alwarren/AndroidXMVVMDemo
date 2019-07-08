@@ -1,0 +1,12 @@
+{
+  "data": [
+    {
+      "flight_number": 65,
+      "mission_name": "Telstar 19V",
+      "details": "SSL-manufactured communications satellite intended to be placed at 63° West over the Americas. At 7,075 kg, it became the heaviest commercial communications satellite ever launched.",
+      "launch_date_unix_long": 1532238600,
+      "launch_date_unix": "2018-07-22T05:50:00.000Z",
+      "launch_site": "Cape Canaveral Air Force Station Space Launch Complex 40"
+    }
+  ]
+}
