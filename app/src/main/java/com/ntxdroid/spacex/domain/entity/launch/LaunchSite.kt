@@ -12,5 +12,6 @@ data class LaunchSite(
 ) {
     companion object {
         val empty = LaunchSite("", "", "")
+        val mock = LaunchSite("ccafs_slc_40", "CCAFS SLC 40", "Cape Canaveral Air Force Station Space Launch Complex 40")
     }
 }

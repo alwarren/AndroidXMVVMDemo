@@ -48,9 +48,18 @@ data class LaunchView(
             return LaunchView(parcel)
         }
 
+
         override fun newArray(size: Int): Array<LaunchView?> {
             return arrayOfNulls(size)
         }
+
+        val mock = LaunchView(
+            650,
+            "Telstar 19V",
+            "SSL-manufactured communications satellite intended to be placed at 63° West over the Americas. At 7,075 kg, it became the heaviest commercial communications satellite ever launched.",
+            1532238600,
+            "Cape Canaveral Air Force Station Space Launch Complex 40"
+        )
     }
 
 }

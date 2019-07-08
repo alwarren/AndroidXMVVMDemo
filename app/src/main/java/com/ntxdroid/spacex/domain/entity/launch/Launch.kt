@@ -57,5 +57,13 @@ data class Launch(
             false, null, Rocket.empty, emptyList(), Telemetry.empty, LaunchSite.empty,
             false, null, Links.empty, null, null,
             null, null)
+        val mock = Launch(650, "Telstar 19V",
+            emptyList(), false,
+            "", 1532238600, "", "", false, "",
+            false, null, Rocket.empty, emptyList(), Telemetry.empty, LaunchSite.mock,
+            false, null, Links.empty,
+            "SSL-manufactured communications satellite intended to be placed at 63° West over the Americas. At 7,075 kg, it became the heaviest commercial communications satellite ever launched.",
+            null,
+            null, null)
     }
 }

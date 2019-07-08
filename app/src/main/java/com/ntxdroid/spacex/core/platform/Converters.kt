@@ -13,13 +13,14 @@ class Converters {
     fun dateToTimestamp(date: Date?) = dateToLong(date)
 
     companion object {
+        const val DATE_VIEW_FORMAT = "EEE, MMM d, yyyy HH:mm z"
+
         fun timeStampToDate(value: Long?) = value?.let { Date(it) }
         fun dateToLong(date: Date?) = date?.time
 
         fun dateString(time: Long, format: String): String {
             val dateFormat = SimpleDateFormat(format, Locale.getDefault())
-            dateFormat.timeZone = TimeZone.getTimeZone("UTC")
-            val dateTime = Date(time)
+            val dateTime = Date(time*1000)
             return dateFormat.format(dateTime)
         }
     }
