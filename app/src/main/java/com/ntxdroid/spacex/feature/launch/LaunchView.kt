@@ -10,6 +10,7 @@ data class LaunchView(
     val flightNumber: Int,
     val missionName: String,
     val details: String,
+    val launchDateUnix: Int,
     val launchDate: String,
     val launchSite: String
 ) : KParcelable {
@@ -18,6 +19,7 @@ data class LaunchView(
         parcel.readInt(),
         parcel.readString() ?: "",
         parcel.readString() ?: "",
+        parcel.readInt(),
         parcel.readString() ?: "",
         parcel.readString() ?: ""
     )
@@ -26,6 +28,7 @@ data class LaunchView(
         launch.flightNumber,
         launch.missionName,
         launch.details ?: "",
+        launch.launchDateUnix,
         Converters.dateString(launch.launchDateUnix.toLong()),
         launch.launchSite.siteNameLong
     )
@@ -35,6 +38,7 @@ data class LaunchView(
             writeInt(flightNumber)
             writeString(missionName)
             writeString(details)
+            writeInt(flightNumber)
             writeString(launchDate)
             writeString(launchSite)
         }
@@ -58,6 +62,7 @@ data class LaunchView(
             650,
             "Telstar 19V",
             "SSL-manufactured communications satellite intended to be placed at 63° West over the Americas. At 7,075 kg, it became the heaviest commercial communications satellite ever launched.",
+            1532238600,
             "Sun, Jul 22, 2018 00:50 UTC",
             "Cape Canaveral Air Force Station Space Launch Complex 40"
         )

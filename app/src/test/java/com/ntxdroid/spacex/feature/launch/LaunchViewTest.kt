@@ -72,8 +72,8 @@ class LaunchViewTest : UnitTest() {
     }
 
     override fun expectedMethods(): List<String> {
-        return listOf("component1", "component2", "component3", "component4", "component5", "copy",
-            "describeContents", "equals", "getDetails", "getFlightNumber", "getLaunchDate", "getLaunchSite",
-            "getMissionName", "hashCode", "toString", "writeToParcel").sorted()
+        return listOf("component1", "component2", "component3", "component4", "component5", "component6", "copy",
+            "describeContents", "equals", "getDetails", "getFlightNumber", "getLaunchDate", "getLaunchDateUnix",
+            "getLaunchSite", "getMissionName", "hashCode", "toString", "writeToParcel").sorted()
     }
 }
