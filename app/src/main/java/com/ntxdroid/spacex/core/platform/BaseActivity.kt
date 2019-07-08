@@ -2,11 +2,10 @@ package com.ntxdroid.spacex.core.platform
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.ntxdroid.spacex.R.layout
 import com.ntxdroid.spacex.R.id
+import com.ntxdroid.spacex.R.layout
 import com.ntxdroid.spacex.core.extension.inTransaction
 import com.ntxdroid.spacex.core.extension.invisible
-import com.ntxdroid.spacex.feature.mission.MissionsFragment
 import kotlinx.android.synthetic.main.activity_layout.*
 import kotlinx.android.synthetic.main.toolbar.*
 
@@ -22,11 +21,7 @@ abstract class BaseActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         addFragment(savedInstanceState)
 
-        fab.setOnClickListener {
-
-            (supportFragmentManager.findFragmentById(
-                id.fragmentContainer) as MissionsFragment).refreshMissions()
-        }
+        fab.setOnClickListener {}
         fab.invisible()
     }
 

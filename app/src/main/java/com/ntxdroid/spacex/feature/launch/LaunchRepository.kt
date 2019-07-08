@@ -8,7 +8,7 @@ import com.ntxdroid.spacex.domain.network.ApiRequest
 import com.ntxdroid.spacex.feature.launch.LaunchRepository.Filter.*
 
 interface LaunchRepository: ApiRequest {
-    fun launches(filter: Filter = ALL): Either<Failure, List<Launch>>
+    fun launches(filter: Filter = UPCOMING): Either<Failure, List<Launch>>
     fun launchDetails(id: Int): Either<Failure, Launch?>
 
     class Network(

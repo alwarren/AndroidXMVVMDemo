@@ -9,7 +9,7 @@ import com.ntxdroid.spacex.domain.entity.launch.Launch
 data class LaunchView(
     val flightNumber: Int,
     val missionName: String,
-    val details: String,
+    val details: String?,
     val launchDateUnix: Int,
     val launchDate: String,
     val launchSite: String
@@ -27,10 +27,19 @@ data class LaunchView(
     constructor(launch: Launch) : this(
         launch.flightNumber,
         launch.missionName,
-        launch.details ?: "",
+        launch.details,
         launch.launchDateUnix,
         Converters.dateString(launch.launchDateUnix.toLong()),
         launch.launchSite.siteNameLong
+    )
+
+    constructor(launch: LaunchView) : this(
+        launch.flightNumber,
+        launch.missionName,
+        launch.details,
+        launch.launchDateUnix,
+        launch.launchDate,
+        launch.launchSite
     )
 
     override fun writeToParcel(dest: Parcel, flags: Int) {

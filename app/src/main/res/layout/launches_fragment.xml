@@ -18,8 +18,8 @@
                 android:layout_height="match_parent"
         >
             <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/missionsList"
-                    tools:listitem="@layout/mission_card"
+                    android:id="@+id/launchesList"
+                    tools:listitem="@layout/launch_card"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layout_constraintTop_toTopOf="parent"

@@ -4,10 +4,7 @@ import android.app.Application
 import com.ntxdroid.spacex.core.platform.Api
 import com.ntxdroid.spacex.core.platform.ApiNetwork
 import com.ntxdroid.spacex.core.platform.NetworkHandler
-import com.ntxdroid.spacex.feature.launch.GetLaunches
-import com.ntxdroid.spacex.feature.launch.LaunchRepository
-import com.ntxdroid.spacex.feature.launch.LaunchService
-import com.ntxdroid.spacex.feature.launch.LaunchesViewModel
+import com.ntxdroid.spacex.feature.launch.*
 import com.ntxdroid.spacex.feature.mission.*
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -29,10 +26,12 @@ class App : Application(), KodeinAware {
 
         bind() from singleton { GetMissions(instance()) }
         bind() from singleton { GetLaunches(instance()) }
+        bind() from singleton { LaunchesAdapter() }
         bind() from singleton { MissionsAdapter() }
         bind() from provider { MissionsViewModel.Factory(instance()) }
         bind() from provider { MissionDetailsViewModel.Factory() }
         bind() from provider { LaunchesViewModel.Factory(instance()) }
+        bind() from provider { LaunchDetailsViewModel.Factory() }
     }
 
     override fun onCreate() {

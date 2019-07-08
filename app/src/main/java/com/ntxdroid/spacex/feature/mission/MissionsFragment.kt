@@ -1,13 +1,15 @@
 package com.ntxdroid.spacex.feature.mission
 
 import android.os.Bundle
-import android.view.*
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
 import androidx.annotation.StringRes
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.ntxdroid.spacex.R
 import com.ntxdroid.spacex.core.exception.Failure
 import com.ntxdroid.spacex.core.exception.Failure.*
-import com.ntxdroid.spacex.core.platform.HttpFailure
 import com.ntxdroid.spacex.core.extension.consume
 import com.ntxdroid.spacex.core.extension.failure
 import com.ntxdroid.spacex.core.extension.observe
@@ -16,10 +18,10 @@ import com.ntxdroid.spacex.core.functional.State
 import com.ntxdroid.spacex.core.functional.State.*
 import com.ntxdroid.spacex.core.navigation.Navigation
 import com.ntxdroid.spacex.core.platform.BaseFragment
+import com.ntxdroid.spacex.core.platform.HttpFailure
 import kotlinx.android.synthetic.main.missions_fragment.*
-import org.kodein.di.android.x.kodein
-
 import org.kodein.di.KodeinAware
+import org.kodein.di.android.x.kodein
 import org.kodein.di.generic.instance
 
 class MissionsFragment : BaseFragment(), KodeinAware,
@@ -69,7 +71,7 @@ class MissionsFragment : BaseFragment(), KodeinAware,
 
     private fun loadMissions() = missionsViewModel.loadMissions()
 
-    fun refreshMissions() = missionsViewModel.refreshMissions()
+    private fun refreshMissions() = missionsViewModel.refreshMissions()
 
     private fun handleState(state: State?) {
         when(state) {
@@ -120,6 +122,7 @@ class MissionsFragment : BaseFragment(), KodeinAware,
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_refresh -> consume { refreshMissions() }
+            R.id.action_launches -> consume { context?.let { Navigation.showLaunchesActivity(it) } }
             R.id.failure_network -> consume { handleFailure(NetworkConnection) }
             R.id.failure_server -> consume { handleFailure(ServerError) }
             R.id.failure_permissions -> consume { handleFailure(PermissionError) }
