@@ -18,7 +18,7 @@ class Converters {
         fun timeStampToDate(value: Long?) = value?.let { Date(it) }
         fun dateToLong(date: Date?) = date?.time
 
-        fun dateString(time: Long, format: String): String {
+        fun dateString(time: Long, format: String = DATE_VIEW_FORMAT): String {
             val dateFormat = SimpleDateFormat(format, Locale.getDefault())
             val dateTime = Date(time*1000)
             return dateFormat.format(dateTime)
