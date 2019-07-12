@@ -1,5 +1,5 @@
 
-Http Failures Test Suite 2019-07-06 10:35 PM
+Http Failures Test Suite 2019-07-12 2:11 PM
   API
     expected methods => PASSED
   Behavior
@@ -11,7 +11,7 @@ Http Failures Test Suite 2019-07-06 10:35 PM
 End of Test Suite
 Passed 4 of 4 tests
 
-Either Test Suite 2019-07-06 10:35 PM
+Either Test Suite 2019-07-12 2:11 PM
   API
     expected methods => PASSED
   Behavior
@@ -22,7 +22,7 @@ Either Test Suite 2019-07-06 10:35 PM
 End of Test Suite
 Passed 3 of 3 tests
 
-Abstract Use Case Test Suite 2019-07-06 10:35 PM
+Abstract Use Case Test Suite 2019-07-12 2:11 PM
   API
     expected methods => PASSED
   Behavior
@@ -33,7 +33,19 @@ Abstract Use Case Test Suite 2019-07-06 10:35 PM
 End of Test Suite
 Passed 3 of 3 tests
 
-Http Status Codes Test Suite 2019-07-06 10:35 PM
+Converters Test Suite 2019-07-12 2:11 PM
+  API
+    expected methods => PASSED
+  Behavior
+    long to date is correct => PASSED
+    date to long is correct => PASSED
+    long to date string is correct => PASSED
+  Corner Cases
+    No Tests
+End of Test Suite
+Passed 4 of 4 tests
+
+Http Status Codes Test Suite 2019-07-12 2:11 PM
   API
     Verify Expected Names => PASSED
     Verify Expected Values => PASSED
@@ -44,7 +56,7 @@ Http Status Codes Test Suite 2019-07-06 10:35 PM
 End of Test Suite
 Passed 3 of 3 tests
 
-Launches Use Case Test Suite 2019-07-06 10:35 PM
+Launches Use Case Test Suite 2019-07-12 2:12 PM
   API
     expected methods => PASSED
   Behavior
@@ -54,7 +66,7 @@ Launches Use Case Test Suite 2019-07-06 10:35 PM
 End of Test Suite
 Passed 2 of 2 tests
 
-Launches ViewModel Test Suite 2019-07-06 10:35 PM
+Launches ViewModel Test Suite 2019-07-12 2:12 PM
   API
     expected methods => PASSED
   Behavior
@@ -65,7 +77,7 @@ Launches ViewModel Test Suite 2019-07-06 10:35 PM
 End of Test Suite
 Passed 4 of 4 tests
 
-Launch Repository Test Suite 2019-07-06 10:35 PM
+Launch Repository Test Suite 2019-07-12 2:12 PM
   API
     expected methods => PASSED
   Behavior
@@ -78,7 +90,7 @@ Launch Repository Test Suite 2019-07-06 10:35 PM
 End of Test Suite
 Passed 6 of 6 tests
 
-Launch View Test Suite 2019-07-06 10:35 PM
+Launch View Test Suite 2019-07-12 2:12 PM
   API
     expected methods => PASSED
   Behavior
@@ -88,7 +100,7 @@ Launch View Test Suite 2019-07-06 10:35 PM
 End of Test Suite
 Passed 2 of 2 tests
 
-Missions Use Case Test Suite 2019-07-06 10:35 PM
+Missions Use Case Test Suite 2019-07-12 2:12 PM
   API
     expected methods => PASSED
   Behavior
@@ -98,7 +110,7 @@ Missions Use Case Test Suite 2019-07-06 10:35 PM
 End of Test Suite
 Passed 2 of 2 tests
 
-Mission Repository Test Suite 2019-07-06 10:35 PM
+Mission Repository Test Suite 2019-07-12 2:12 PM
   API
     expected methods => PASSED
   Behavior
@@ -115,7 +127,7 @@ Mission Repository Test Suite 2019-07-06 10:35 PM
 End of Test Suite
 Passed 9 of 9 tests
 
-Missions ViewModel Test Suite 2019-07-06 10:35 PM
+Missions ViewModel Test Suite 2019-07-12 2:12 PM
   API
     expected methods => PASSED
   Behavior
@@ -126,7 +138,7 @@ Missions ViewModel Test Suite 2019-07-06 10:35 PM
 End of Test Suite
 Passed 4 of 4 tests
 
-Mission View Test Suite 2019-07-06 10:35 PM
+Mission View Test Suite 2019-07-12 2:12 PM
   API
     expected methods => PASSED
   Behavior
@@ -136,4 +148,4 @@ Mission View Test Suite 2019-07-06 10:35 PM
 End of Test Suite
 Passed 2 of 2 tests
 
-Tests Passed: 52 of 52 Tests
+Tests passed: 57 of 57 tests
