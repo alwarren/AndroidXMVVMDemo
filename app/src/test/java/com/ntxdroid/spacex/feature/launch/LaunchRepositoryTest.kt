@@ -35,6 +35,7 @@ class LaunchRepositoryTest : UnitTest() {
         every { response.isSuccessful } returns false
         every { response.body() } returns launches
         every { launchService.getAll() } returns call
+        every { launchService.getUpcoming() } returns call
         every { call.execute() } returns response
     }
 
